@@ -241,12 +241,14 @@ SELECT TOP 3 item.ItemName, item.ItemPrice FROM item ORDER BY item.ItemPrice DES
 SELECT TOP 2 item.ItemName, item.QtyOnHand FROM item ORDER BY item.QtyOnHand;
 
 -- OPG 40 - CREATE A SIMPLE VIEW WITH ITEM NAMES AND ITEM PRICES ONLY
-SELECT item.ItemName, item.ItemPrice FROM item;
+CREATE VIEW namesAndPrices AS SELECT item.ItemName, item.ItemPrice FROM item;
+SELECT * FROM namesAndPrices;
 
 -- OPG 40 - CREATE A VIEW THAT WILL DISPLAY INVOICE NUMBER AND CUSTOMER NAMES FOR al CUSTOMERS
-SELECT customer.CustName, invoice.InvNo FROM customer
-JOIN invoice ON customer.CustNo = invoice.CustNo
-ORDER BY customer.CustName;
+CREATE VIEW namesAndInvoices AS 
+	SELECT customer.CustName, invoice.InvNo FROM customer
+	JOIN invoice ON customer.CustNo = invoice.CustNo;
+SELECT * FROM namesAndInvoices ORDER BY CustName;
 
 -- OPG 41 - CREATE AN INDEX FILE TO SPEED UP A SEARCH BASED ON CUSTOMER'S NAME
 CREATE INDEX index_CustName ON customer (CustName);
