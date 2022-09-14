@@ -8,25 +8,25 @@ USE Silvan;
 
 	/* CUSTOMER */
 CREATE TABLE customer(CustNo INTEGER PRIMARY KEY,
-					  CustName VARCHAR(255),
-					  State VARCHAR(2),
-					  Phone VARCHAR(12));
+		      CustName VARCHAR(255),
+		      State VARCHAR(2),
+	      	      Phone VARCHAR(12));
 
 	/* ITEM */
 CREATE TABLE item(ItemNo INTEGER PRIMARY KEY,
-				  ItemName VARCHAR(255),
-				  ItemPrice MONEY,
-				  QtyOnHand INTEGER);
+		  ItemName VARCHAR(255),
+		  ItemPrice MONEY,
+		  QtyOnHand INTEGER);
 
 	/* INVOICE */
 CREATE TABLE invoice(InvNo INTEGER PRIMARY KEY,
-					 InvDate DATE,
-					 CustNo INTEGER FOREIGN KEY REFERENCES customer(CustNo));
+		     InvDate DATE,
+		     CustNo INTEGER FOREIGN KEY REFERENCES customer(CustNo));
 
 	/* INVITEM */
 CREATE TABLE invitem(InvNo INTEGER FOREIGN KEY REFERENCES invoice(InvNo),
-					 ItemNo INTEGER FOREIGN KEY REFERENCES item(ItemNo),
-					 Qty INTEGER);
+		     ItemNo INTEGER FOREIGN KEY REFERENCES item(ItemNo),
+		     Qty INTEGER);
 
 -- 0.3 Opret database og tabeller med testdata fra opgaven
 INSERT INTO customer VALUES (211, 'Garcia', 'NJ', '732-555-1000');
