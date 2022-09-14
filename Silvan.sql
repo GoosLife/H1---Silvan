@@ -232,7 +232,7 @@ SELECT * FROM customer EXCEPT SELECT * FROM customer WHERE State LIKE 'NY' OR St
 
 -- OPG 37 - DELETE ROWS FROM THE CUSTOMER TABLE THAT ARE ALSO IN THE NYNJ_CUSTOMER TABLE
 
-DELETE FROM customer WHERE customer.CustNo IN (SELECT CustNo FROM [NYNJ CUSTOMER]); -- Det må jeg ikke.
+DELETE FROM customer WHERE customer.CustNo IN (SELECT CustNo FROM [NYNJ CUSTOMER]); -- Det må jeg ikke. Customer bliver refereret til i en foreign key i invoice.
 
 -- OPG 38 - FIND THE ITEMS WITH THE TOP THREE PRICES
 SELECT TOP 3 item.ItemName, item.ItemPrice FROM item ORDER BY item.ItemPrice DESC;
