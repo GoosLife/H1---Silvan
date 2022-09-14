@@ -1,4 +1,4 @@
--- Frederik Hvid Sørensen
+-- Frederik Hvid SÃ¸rensen
 
 -- 0.1 Opret Silvan database
 CREATE DATABASE Silvan;
@@ -73,7 +73,7 @@ SELECT * FROM customer;
 SELECT ItemName, ItemPrice FROM item;
 
 -- OPG 3 - DISPLAY UNIQUE INVOICE NUMBERS FROM THE INVITEM TABLE
-SELECT InvNo FROM invoice;
+SELECT InvNo FROM invitem;
 
 -- OPG 4 - DISPLAY ITEM INFORMATION WITH APPROPRIATE COLUMN ALIASES
 SELECT ItemNo AS "Item number", ItemName AS "Name of item", ItemPrice AS "Unit price", QtyOnHand AS "Quantity on hand" FROM item;
@@ -97,7 +97,7 @@ SELECT * FROM item WHERE ItemPrice >= 2 AND ItemPrice <= 7;
 SELECT * FROM customer WHERE State IN ('NJ', 'NY', 'CT');
 
 -- OPG 11 - FIND ALL CUSTOMERS WHOSE NAMES START WITH THE LETTER E
-SELECT * FROM customer WHERE CustName LIKE 'E%' OR CustName LIKE 'e%'; -- Tjekker store og små bogstaver for en sikkerheds skyld
+SELECT * FROM customer WHERE CustName LIKE 'E%' OR CustName LIKE 'e%'; -- Tjekker store og smÃ¥ bogstaver for en sikkerheds skyld
 
 -- OPG 12 - FIND ITEMS WITH E W IN THEIR NAME
 SELECT * FROM item 
@@ -232,7 +232,7 @@ SELECT * FROM customer EXCEPT SELECT * FROM customer WHERE State LIKE 'NY' OR St
 
 -- OPG 37 - DELETE ROWS FROM THE CUSTOMER TABLE THAT ARE ALSO IN THE NYNJ_CUSTOMER TABLE
 
-DELETE FROM customer WHERE customer.CustNo IN (SELECT CustNo FROM [NYNJ CUSTOMER]); -- Det må jeg ikke.
+DELETE FROM customer WHERE customer.CustNo IN (SELECT CustNo FROM [NYNJ CUSTOMER]); -- Det mÃ¥ jeg ikke.
 
 -- OPG 38 - FIND THE ITEMS WITH THE TOP THREE PRICES
 SELECT TOP 3 item.ItemName, item.ItemPrice FROM item ORDER BY item.ItemPrice DESC;
